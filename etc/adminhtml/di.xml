@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit\Tab\Main">
+        <arguments>
+            <argument name="formFactory" xsi:type="object">Pmclain\MultiSelectSwatch\Block\Adminhtml\Product\Attribute\Edit\FormFactory</argument>
+        </arguments>
+    </type>
+    <virtualType name="Pmclain\MultiSelectSwatch\Block\Adminhtml\Product\Attribute\Edit\FormFactory" type="Magento\Framework\Data\FormFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Pmclain\MultiSelectSwatch\Block\Adminhtml\Product\Attribute\Edit\Form</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\Attribute\Save">
+        <plugin name="save_multiselect_swatches_frontend_input" type="Pmclain\MultiSelectSwatch\Plugin\Controller\Adminhtml\Product\Attribute\Save" />
+    </type>
+</config>

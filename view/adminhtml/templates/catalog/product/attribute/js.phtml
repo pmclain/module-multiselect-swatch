@@ -1,0 +1,11 @@
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "swatchesProductAttributes": {
+                "hiddenFields": <?= /* @escapeNotVerified */ json_encode($this->helper('Magento\Catalog\Helper\Data')->getAttributeHiddenFields()) ?>
+            },
+            "swatchesTypeChange": { },
+            "Pmclain_MultiSelectSwatch/js/type-change": { }
+        }
+    }
+</script>

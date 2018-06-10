@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_product_attribute_types">
+        <observer name="multiselect_swatch_attribute_type" instance="Pmclain\MultiSelectSwatch\Observer\AddMultiSelectSwatchType" />
+    </event>
+</config>
