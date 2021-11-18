@@ -10,7 +10,8 @@ define([
 ], function ($, alert, prompt, rg) {
     'use strict';
 
-    return function (optionConfig) {
+    return function (optionConfig) {        
+
         var swatchProductAttributes = {
                 frontendInput: $('#frontend_input'),
                 isFilterable: $('#is_filterable'),
@@ -64,7 +65,8 @@ define([
                 checkOptionsPanelVisibility: function () {
                     var selectOptionsPanel = $('#manage-options-panel'),
                         visualOptionsPanel = $('#swatch-visual-options-panel'),
-                        textOptionsPanel = $('#swatch-text-options-panel');
+                        textOptionsPanel = $('#swatch-text-options-panel'),
+                        activePanelClass = 'selected-type-options';
 
                     this._hidePanel(selectOptionsPanel);
                     this._hidePanel(visualOptionsPanel);
@@ -73,16 +75,19 @@ define([
                     switch (this.frontendInput.val()) {
                         case 'swatch_visual':
                         case 'swatch_multiselect_visual':
+                            visualOptionsPanel.removeClass(activePanelClass);
                             this._showPanel(visualOptionsPanel);
                             break;
 
                         case 'swatch_text':
                         case 'swatch_multiselect_text':
+                            textOptionsPanel.removeClass(activePanelClass);
                             this._showPanel(textOptionsPanel);
                             break;
 
                         case 'select':
                         case 'multiselect':
+                            selectOptionsPanel.addClass(activePanelClass);
                             this._showPanel(selectOptionsPanel);
                             break;
                     }
@@ -170,6 +175,7 @@ define([
                  * @this {swatchProductAttributes}
                  */
                 switchDefaultValueField: function () {
+                    
                     var currentValue = this.frontendInput.val(),
                         defaultValueTextVisibility = false,
                         defaultValueTextareaVisibility = false,
@@ -361,7 +367,7 @@ define([
                  * @param {String} promptMessage
                  * @this {swatchProductAttributes}
                  */
-                saveAttributeInNewSet: function (promptMessage) {
+                saveAttributeInNewSet: function (promptMessage) {                    
 
                     prompt({
                         content: promptMessage,
